@@ -30,12 +30,11 @@ class TodoCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Checkbox(
-                value: todo.done,
-                onChanged: (newValue) {
-                  Database().updateTodo(newValue, uid, todo.todoId);
-                },
-              ),
+              IconSlideAction(
+      caption: 'Delete',
+      color: Colors.red,
+      icon: Icons.delete,      
+    ),
             ],
           ),
         ),
