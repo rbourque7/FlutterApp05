@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/models/todo.dart';
 import 'package:robbinlaw/services/database.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class TodoCard extends StatelessWidget {
   final String uid;
@@ -10,11 +11,10 @@ class TodoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dismissible(
+    return Slidable(
       key: Key('todo-${todo.todoId}'),
-      background: Container(color: Colors.red),
-      direction: DismissDirection.endToStart,
-      onDismissed: (direction) => Database().deleteTodo(uid, todo.todoId),
+      actionPane: SlidableDrawerActionPane(),
+  actionExtentRatio: 0.25,
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Padding(
